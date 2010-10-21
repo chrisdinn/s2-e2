@@ -3,7 +3,7 @@ require 'test_helper'
 class BargainBinStateTest < Test::Unit::TestCase
   
   def test_cost
-    assert_equal 2, bargain_bin.cost
+    assert_equal 2, bargain_bin.rental_cost
   end
     
   def test_rental_period

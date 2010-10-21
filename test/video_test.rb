@@ -27,10 +27,10 @@ class VideoTest < Test::Unit::TestCase
   def test_defer_to_state_for_cost
     video = Video.new
     
-    assert_nil video.cost
+    assert_nil video.rental_cost
     
     video.set_state NewReleaseState
-    assert_equal 7, video.cost
+    assert_equal 7, video.rental_cost
   end
   
   def test_shelve_video

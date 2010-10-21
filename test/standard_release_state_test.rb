@@ -3,7 +3,7 @@ require 'test_helper'
 class StandardReleaseStateTest < Test::Unit::TestCase
   
   def test_cost
-    assert_equal 4, standard_release.cost
+    assert_equal 4, standard_release.rental_cost
   end
     
   def test_rental_period
