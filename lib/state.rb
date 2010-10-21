@@ -6,4 +6,8 @@ class State
     !!purchase_price
   end
   
+  def available_for_rent?
+    !!cost
+  end
+  
 end 
