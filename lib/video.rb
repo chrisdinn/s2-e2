@@ -49,11 +49,6 @@ class Video
   def recall
     set_state UnreleasedState
   end
-
-
-  def available_for_purchase?
-    !!purchase_price
-  end  
   
   def method_missing(method_name, *args)
     if rental_state.respond_to?(method_name)
