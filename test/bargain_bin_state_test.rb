@@ -15,7 +15,7 @@ class BargainBinStateTest < Test::Unit::TestCase
   end
     
   def bargain_bin
-    BargainBinState.new
+    Video::BargainBin.new
   end
   
 end

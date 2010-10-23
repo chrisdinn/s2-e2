@@ -1,4 +1,0 @@
-
-class UnreleasedState < State
-  
-end

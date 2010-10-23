@@ -15,7 +15,7 @@ class NewReleaseStateTest < Test::Unit::TestCase
   end
     
   def new_release
-    NewReleaseState.new
+    Video::NewRelease.new
   end
 
 end

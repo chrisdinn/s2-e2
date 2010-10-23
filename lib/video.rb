@@ -1,15 +1,20 @@
-require 'state'
-require 'unreleased_state'
-require 'new_release_state'
-require 'standard_release_state'
-require 'bargain_bin_state'
+require 'forwardable'
+
+require 'video/merchandise_availability'
+require 'video/new_release'
+require 'video/standard_release'
+require 'video/bargain_bin'
+require 'video/unreleased'
 
 class Video
+  extend Forwardable
   
   attr_reader :rental_state
+  
+  def_delegators :rental_state, :rental_cost, :rental_period, :purchase_price
       
   def initialize
-    set_state UnreleasedState
+    set_state Unreleased
   end
   
   def set_state(new_state)
@@ -18,44 +23,36 @@ class Video
   
   
   def unreleased?
-    rental_state.kind_of? UnreleasedState
+    rental_state.kind_of? Unreleased
   end
   
   def new_release?
-    rental_state.kind_of? NewReleaseState
+    rental_state.kind_of? NewRelease
   end
   
   def standard_release?
-    rental_state.kind_of? StandardReleaseState
+    rental_state.kind_of? StandardRelease
   end
 
   def bargain_bin?
-    rental_state.kind_of? BargainBinState
+    rental_state.kind_of? BargainBin
   end
   
   
   def release
-    set_state NewReleaseState
+    set_state NewRelease
   end
   
   def shelve
-    set_state StandardReleaseState
+    set_state StandardRelease
   end
   
   def liquidate
-    set_state BargainBinState
+    set_state BargainBin
   end
   
   def recall
-    set_state UnreleasedState
-  end
-  
-  def method_missing(method_name, *args)
-    if rental_state.respond_to?(method_name)
-      rental_state.send method_name
-    else
-      super method_name, *args
-    end
+    set_state Unreleased
   end
   
 end

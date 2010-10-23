@@ -15,7 +15,7 @@ class StandardReleaseStateTest < Test::Unit::TestCase
   end
     
   def standard_release
-    StandardReleaseState.new
+    Video::StandardRelease.new
   end
   
 end

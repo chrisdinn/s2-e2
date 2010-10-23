@@ -9,10 +9,10 @@ class VideoTest < Test::Unit::TestCase
   
   def test_transition_to_state
     video = Video.new
-    video.set_state NewReleaseState
+    video.set_state Video::NewRelease
     assert video.new_release?
     
-    video.set_state UnreleasedState
+    video.set_state Video::Unreleased
     assert video.unreleased?
   end
   
@@ -29,7 +29,7 @@ class VideoTest < Test::Unit::TestCase
     
     assert_nil video.rental_cost
     
-    video.set_state NewReleaseState
+    video.set_state Video::NewRelease
     assert_equal 7, video.rental_cost
   end
   
