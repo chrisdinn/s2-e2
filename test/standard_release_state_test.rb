@@ -14,6 +14,15 @@ class StandardReleaseStateTest < Test::Unit::TestCase
     assert_equal 15, standard_release.purchase_price
   end
     
+  def test_purchase_availability
+    assert standard_release.available_for_purchase?
+  end
+  
+  def test_rental_availability
+    assert standard_release.available_for_rent?
+  end
+  
+    
   def standard_release
     Video::StandardRelease.new
   end

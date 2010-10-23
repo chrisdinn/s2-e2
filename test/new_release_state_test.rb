@@ -13,6 +13,15 @@ class NewReleaseStateTest < Test::Unit::TestCase
   def test_purchase_price
     assert_nil new_release.purchase_price
   end
+  
+  def test_purchase_availability
+    assert !new_release.available_for_purchase?
+  end
+  
+  def test_rental_availability
+    assert new_release.available_for_rent?
+  end
+  
     
   def new_release
     Video::NewRelease.new

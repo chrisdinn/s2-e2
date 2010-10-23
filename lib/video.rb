@@ -11,7 +11,8 @@ class Video
   
   attr_reader :rental_state
   
-  def_delegators :rental_state, :rental_cost, :rental_period, :purchase_price
+  def_delegators  :rental_state, :rental_cost, :rental_period, :purchase_price,
+                  :available_for_purchase?, :available_for_rent?
       
   def initialize
     set_state Unreleased

@@ -13,7 +13,15 @@ class BargainBinStateTest < Test::Unit::TestCase
   def test_purchase_price
     assert_equal 10, bargain_bin.purchase_price
   end
-    
+  
+  def test_purchase_availability
+    assert bargain_bin.available_for_purchase?
+  end
+  
+  def test_rental_availability
+    assert bargain_bin.available_for_rent?
+  end
+  
   def bargain_bin
     Video::BargainBin.new
   end
